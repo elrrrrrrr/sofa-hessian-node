@@ -1848,6 +1848,9 @@ describe('test/hessian.test.js', () => {
             'com.alipay.test.Father#2.0.js',
             'java.lang.String#2.0.js',
           ]);
+          for (const file of files) {
+            assert(require.cache[path.join(dir, file)], `${file} should be loaded as a debuggable module`);
+          }
         });
       });
     });
